@@ -1,0 +1,99 @@
+h1 {
+    font-size: 3rem;
+}
+
+#first-screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#first-screen .first-screen-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+#second-screen {
+    display: none;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonWrapper button {
+    width: 30%;
+}
+
+.app :nth-child(4) {
+    flex-basis: 50%;
+}
+
+.running-squirrel-gif {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.help-the-squirrel {
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: white 2px 2px;
+    color: rgb(222, 120, 57);
+    margin: 0;
+    padding: 2rem 5rem;
+    cursor: pointer;
+    animation: infinite;
+}
+
+.squirrel-gif {
+    height: 20em;
+}
+
+.introduction-history {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    width: 50%;
+    background-color: #ada62099;
+    padding: 2rem;
+    border-radius: 15px;
+    line-height: 1.7em;
+}
+
+#start-button {
+    display: flex;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', sans-serif;
+    background-color: #fff2004a;
+    width: 30rem;
+    height: 7rem;
+    border-radius: 15px;
+    border-color: #fff2004a;
+}
+
+#start-button:hover {
+    background-color: #c4be504a;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+}

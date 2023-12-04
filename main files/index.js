@@ -14,6 +14,19 @@ class Game {
         setInterval(() => {
             letsGoTitle.style.display = 'none';
         }, 2000);
+
+        const player = document.getElementById('player');
+        let position = 0;
+        const moveSpeed = 40;
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                position += moveSpeed;
+            } else if (event.key === 'ArrowLeft') {
+                position -= moveSpeed;
+            }
+            player.style.left = position + 'px';
+        });
     }
 }
 

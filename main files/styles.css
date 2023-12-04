@@ -1,3 +1,13 @@
+body {
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    font-family: 'Gill Sans', sans-serif;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 h1 {
     font-size: 3rem;
 }
@@ -91,9 +101,44 @@ h1 {
     background-color: #c4be504a;
 }
 
-body {
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+#second-screen {
+    color: rgb(222, 120, 57);
     width: 100%;
+}
+
+#lets-go {
+    text-transform: uppercase;
+    text-shadow: white 2px 2px;
+    color: rgb(222, 120, 57);
+    margin-top: 3em;
+    margin-bottom: 0;
+    margin-left: 5em;
+    position: absolute;
+    font-size: 5em;
+}
+
+.second-screen-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#player img {
+    width: 100%;
+    height: 100%;
+}
+
+#player {
+    width: 10em;
+    height: 12em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }

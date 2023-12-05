@@ -19,8 +19,9 @@
                     />
                     <p class="introduction-history">
                         This beautiful squirrel needs to store his nuts for
-                        winter, let's help him get as many nuts as he needs!
+                        winter, let's help him get as many nuts as he needs.
                     </p>
+                    <p>Use the left and right arrow to control the squirrel!</p>
                     <div class="buttonWrapper">
                         <button id="start-button">Start</button>
                     </div>
@@ -36,14 +37,17 @@
             />
             <div id="game-container">
                 <div id="player">
+                    <div class="player-collision"></div>
                     <img src="images/squirrel.png" alt="squirrel-player" />
                 </div>
                 <div class="container-counters">
-                    <div id="score" class="counter">Score: 0</div>
-                    <div id="lives" class="counter">Lives: 3</div>
+                    <div id="score">Score: <span>0</span></div>
+                    <div id="lives">Lives: <span>3</span></div>
                 </div>
             </div>
         </section>
+        <script src="player.js"></script>
+        <script src="game.js"></script>
         <script src="index.js"></script>
     </body>
 </html>

@@ -12,6 +12,7 @@ class Game {
         this.restartButton = document.createElement('button');
         this.wrapper = document.createElement('div');
         this.wonLoseText = document.createElement('div');
+        this.hasWon = false;
     }
 
     startGame() {
@@ -48,6 +49,11 @@ class Game {
 
     gameLoop() {
         if (this.lives === 0) {
+            this.endGame();
+            return;
+        }
+        if (this.lives > 0 && this.score >= 5) {
+            this.hasWon = true;
             this.endGame();
             return;
         }
@@ -139,7 +145,11 @@ class Game {
         this.gameContainer.appendChild(this.wrapper);
 
         this.wonLoseText.classList.add('won-lose-text');
-        this.wonLoseText.textContent = 'You lose!';
+        if (this.hasWon) {
+            this.wonLoseText.textContent = 'CONGRATS YOU win!!';
+        } else {
+            this.wonLoseText.textContent = 'You lose!';
+        }
         this.wrapper.appendChild(this.wonLoseText);
 
         this.restartButton.setAttribute('id', 'restart-button');

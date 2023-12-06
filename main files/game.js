@@ -1,12 +1,12 @@
 class Game {
     constructor() {
+        this.playerElement = document.getElementById('player');
         this.nut1 = document.createElement('div');
         this.nut2 = document.createElement('div');
         this.score = 0;
         this.lives = 3;
         this.scoreElement = document.getElementById('score');
         this.livesElement = document.getElementById('lives');
-        this.player = document.getElementById('player');
         this.gameContainer = document.getElementById('game-container');
         this.letsGoTitle = document.getElementById('lets-go');
         this.restartButton = document.createElement('button');
@@ -28,23 +28,12 @@ class Game {
         this.letsGoTitle.style.display = 'block';
         this.resetScoreAndLives();
         this.updateCounters();
+
         setTimeout(() => {
             this.letsGoTitle.style.display = 'none';
             this.renderNuts();
             this.gameLoop();
         }, 2000);
-
-        let position = 0;
-        const moveSpeed = 100;
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowRight') {
-                position += moveSpeed;
-            } else if (event.key === 'ArrowLeft') {
-                position -= moveSpeed;
-            }
-            this.player.style.left = position + 'px';
-        });
     }
 
     gameLoop() {
@@ -100,7 +89,7 @@ class Game {
     checkCollision() {
         const nut1Rect = this.nut1.getBoundingClientRect();
         const nut2Rect = this.nut2.getBoundingClientRect();
-        const playerRect = this.player
+        const playerRect = this.playerElement
             .querySelector('.player-collision')
             .getBoundingClientRect();
 

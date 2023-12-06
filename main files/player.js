@@ -1,18 +1,26 @@
-/*class Player {
-    constructor() {}
-    player() {
-        const player = document.getElementById('player');
-        let position = 0;
-        const moveSpeed = 100;
+class Player {
+    constructor(playerElement, gameContainer) {
+        this.playerElement = playerElement;
+        this.gameContainer = gameContainer;
+        this.position = 0;
+        this.moveSpeed = 100;
+    }
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowRight') {
-                position += moveSpeed;
-            } else if (event.key === 'ArrowLeft') {
-                position -= moveSpeed;
-            }
-            this.player.style.left = position + 'px';
-        });
+    move(direction) {
+        if (direction === 'right') {
+            debugger;
+            this.position += this.moveSpeed;
+            debugger;
+            this.position = Math.min(
+                this.position,
+                this.gameContainer.clientWidth - this.playerElement.offsetWidth
+            );
+            debugger;
+        } else if (direction === 'left') {
+            this.position -= this.moveSpeed;
+            this.position = Math.max(0, this.position);
+        }
+
+        this.playerElement.style.left = this.position + 'px';
     }
 }
-*/

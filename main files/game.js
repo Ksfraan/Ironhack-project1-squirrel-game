@@ -10,24 +10,24 @@ class Game {
         this.gameContainer = document.getElementById('game-container');
         this.letsGoTitle = document.getElementById('lets-go');
         this.restartButton = document.createElement('button');
-        this.wrapper = document.createElement('div');
+        this.endGameWrapper = document.createElement('div');
         this.wonLoseText = document.createElement('div');
         this.hasWon = false;
+        this.secondScreen = document.getElementById('second-screen');
+        this.firstScreen = document.getElementById('first-screen');
+        this.mainMenuButton = document.createElement('button');
     }
 
     startGame() {
-        const firstScreen = (document.getElementById(
-            'first-screen'
-        ).style.display = 'none');
-
-        const secondScreen = (document.getElementById(
-            'second-screen'
-        ).style.display = 'block');
+        this.firstScreen.style.display = 'none';
+        this.secondScreen.style.display = 'block';
         this.beginGame();
     }
 
     beginGame() {
-        this.wrapper.style.display = 'none';
+        this.letsGoTitle.style.display = 'block';
+        this.resetScoreAndLives();
+        this.updateCounters();
         setTimeout(() => {
             this.letsGoTitle.style.display = 'none';
             this.renderNuts();
@@ -52,6 +52,7 @@ class Game {
             this.endGame();
             return;
         }
+
         if (this.lives > 0 && this.score >= 5) {
             this.hasWon = true;
             this.endGame();
@@ -139,10 +140,11 @@ class Game {
         this.scoreElement.querySelector('span').textContent = this.score;
         this.livesElement.querySelector('span').textContent = this.lives;
     }
+
     endGame() {
-        this.wrapper.style.display = 'flex';
-        this.wrapper.classList.add('end-game-wrapper');
-        this.gameContainer.appendChild(this.wrapper);
+        this.endGameWrapper.style.display = 'flex';
+        this.endGameWrapper.classList.add('end-game-wrapper');
+        this.gameContainer.appendChild(this.endGameWrapper);
 
         this.wonLoseText.classList.add('won-lose-text');
         if (this.hasWon) {
@@ -150,17 +152,30 @@ class Game {
         } else {
             this.wonLoseText.textContent = 'You lose!';
         }
-        this.wrapper.appendChild(this.wonLoseText);
+        this.endGameWrapper.appendChild(this.wonLoseText);
 
         this.restartButton.setAttribute('id', 'restart-button');
         this.restartButton.textContent = 'Restart';
-        this.wrapper.appendChild(this.restartButton);
+        this.endGameWrapper.appendChild(this.restartButton);
+
+        this.mainMenuButton.classList.add('main-menu-mutton');
+        this.mainMenuButton.textContent = 'Main Menu';
+        this.endGameWrapper.appendChild(this.mainMenuButton);
 
         this.restartButton.addEventListener('click', () => {
-            this.lives = 3;
-            this.score = 0;
-            this.letsGoTitle.style.display = 'block';
+            this.endGameWrapper.style.display = 'none';
             this.beginGame();
         });
+
+        this.mainMenuButton.addEventListener('click', () => {
+            this.endGameWrapper.style.display = 'none';
+            this.firstScreen.style.display = 'block';
+            this.secondScreen.style.display = 'none';
+        });
+    }
+
+    resetScoreAndLives() {
+        this.lives = 3;
+        this.score = 0;
     }
 }

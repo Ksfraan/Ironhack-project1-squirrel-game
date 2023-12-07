@@ -111,6 +111,9 @@ class Game {
         this.endGameWrapper.classList.add('end-game-wrapper');
         this.gameContainer.appendChild(this.endGameWrapper);
 
+        this.nut1Element.remove();
+        this.nut2Element.remove();
+
         this.wonLoseText.classList.add('won-lose-text');
         if (this.hasWon) {
             this.isLive = false;

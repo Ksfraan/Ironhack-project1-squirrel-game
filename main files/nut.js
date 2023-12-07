@@ -6,7 +6,6 @@ class Nut {
         this.animationId = null;
         this.horizontalPosition = Math.random() * window.innerWidth;
     }
-
     appendTo(container) {
         container.appendChild(this.nutElement);
     }

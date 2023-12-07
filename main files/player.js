@@ -8,14 +8,12 @@ class Player {
 
     move(direction) {
         if (direction === 'right') {
-            debugger;
             this.position += this.moveSpeed;
-            debugger;
+
             this.position = Math.min(
                 this.position,
                 this.gameContainer.clientWidth - this.playerElement.offsetWidth
             );
-            debugger;
         } else if (direction === 'left') {
             this.position -= this.moveSpeed;
             this.position = Math.max(0, this.position);

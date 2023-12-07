@@ -156,7 +156,6 @@ h1 {
 }
 
 .container-counters {
-    color: #ff5733;
     text-transform: uppercase;
     font-size: 4em;
     display: flex;
@@ -170,24 +169,25 @@ h1 {
     top: 0;
     position: absolute;
     width: 100%;
+    text-shadow: rgb(158, 72, 19) 2px 2px;
+    font-size: 3em;
+    color: rgb(228, 203, 185);
 }
 
-#nut1 {
+.falling-nut {
     position: absolute;
     width: 5em;
     height: 6em;
-    background-image: url('images/good\ nut.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-#nut2 {
-    position: absolute;
-    width: 5em;
-    height: 6em;
+.bad-nut {
     background-image: url('images/rotten\ nut.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+}
+
+.good-nut {
+    background-image: url('images/good\ nut.png');
 }
 
 .end-game-wrapper {
@@ -199,4 +199,45 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    justify-content: center;
+}
+
+#restart-button {
+    display: flex;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', sans-serif;
+    background-color: #fff2004a;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 15px;
+    border-color: #fff2004a;
+    margin-bottom: 1em;
+}
+
+.main-menu-button {
+    display: flex;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', sans-serif;
+    background-color: #fff2004a;
+    width: 10rem;
+    height: 5rem;
+    border-radius: 15px;
+    border-color: #fff2004a;
+}
+
+.won-lose-text {
+    display: flex;
+    text-transform: uppercase;
+    text-shadow: white 2px 2px;
+    font-size: 3em;
+    color: rgb(123, 51, 7);
+    margin: 0;
 }

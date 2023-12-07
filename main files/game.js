@@ -1,8 +1,10 @@
 class Game {
     constructor() {
         this.playerElement = document.getElementById('player');
-        this.nut1 = document.createElement('div');
-        this.nut2 = document.createElement('div');
+        this.nut1 = new Nut('good-nut');
+        this.nut2 = new Nut('bad-nut');
+        this.nut1Element = this.nut1.getNutElement();
+        this.nut2Element = this.nut2.getNutElement();
         this.score = 0;
         this.lives = 3;
         this.scoreElement = document.getElementById('score');
@@ -16,6 +18,7 @@ class Game {
         this.secondScreen = document.getElementById('second-screen');
         this.firstScreen = document.getElementById('first-screen');
         this.mainMenuButton = document.createElement('button');
+        this.isLive = true;
     }
 
     startGame() {
@@ -51,44 +54,17 @@ class Game {
 
         requestAnimationFrame(() => this.gameLoop());
     }
-
     renderNuts() {
-        this.nut1.classList.add('falling-nut', 'good-nut');
-        this.nut2.classList.add('falling-nut', 'bad-nut');
-        this.nut1.setAttribute('id', 'nut1');
-        this.nut2.setAttribute('id', 'nut2');
+        this.nut1.appendTo(this.gameContainer);
+        this.nut2.appendTo(this.gameContainer);
 
-        this.gameContainer.appendChild(this.nut1);
-        this.gameContainer.appendChild(this.nut2);
-
-        animateNut(this.nut1, 'good-nut');
-        animateNut(this.nut2, 'bad-nut');
-
-        function animateNut(nut, nutType) {
-            const startPosition = Math.random() * window.innerWidth;
-            const fallSpeed = Math.random() * 5 + 3;
-
-            nut.style.left = startPosition + 'px';
-            nut.classList.add(nutType);
-
-            function move() {
-                const topPosition = nut.offsetTop;
-                nut.style.top = topPosition + fallSpeed + 'px';
-
-                if (topPosition > window.innerHeight) {
-                    // Reset the position when the nut reaches the bottom of the screen
-                    nut.style.top = '-10px'; //negative height for the animation to enter the screen
-                    nut.style.left = Math.random() * window.innerWidth + 'px';
-                }
-                requestAnimationFrame(move);
-            }
-            move();
-        }
+        this.nut1.startAnimation();
+        this.nut2.startAnimation();
     }
 
     checkCollision() {
-        const nut1Rect = this.nut1.getBoundingClientRect();
-        const nut2Rect = this.nut2.getBoundingClientRect();
+        const nut1Rect = this.nut1Element.getBoundingClientRect();
+        const nut2Rect = this.nut2Element.getBoundingClientRect();
         const playerRect = this.playerElement
             .querySelector('.player-collision')
             .getBoundingClientRect();
@@ -108,9 +84,8 @@ class Game {
             nut1Rect.top < playerRect.bottom &&
             nut1Rect.bottom > playerRect.top
         ) {
-            console.log('NUT1 COLLISION ======');
             this.score += 1;
-            resetNut1Position(this.nut1);
+            resetNut1Position(this.nut1Element);
             this.updateCounters();
         } else if (
             nut2Rect.left < playerRect.right &&
@@ -118,9 +93,8 @@ class Game {
             nut2Rect.top < playerRect.bottom &&
             nut2Rect.bottom > playerRect.top
         ) {
-            console.log('NUT2 COLLISION ======');
             this.lives -= 1;
-            resetNut2Position(this.nut2);
+            resetNut2Position(this.nut2Element);
             this.updateCounters();
         }
     }
@@ -131,14 +105,18 @@ class Game {
     }
 
     endGame() {
+        this.nut1.stopAnimation();
+        this.nut2.stopAnimation();
         this.endGameWrapper.style.display = 'flex';
         this.endGameWrapper.classList.add('end-game-wrapper');
         this.gameContainer.appendChild(this.endGameWrapper);
 
         this.wonLoseText.classList.add('won-lose-text');
         if (this.hasWon) {
+            this.isLive = false;
             this.wonLoseText.textContent = 'CONGRATS YOU win!!';
         } else {
+            this.isLive = false;
             this.wonLoseText.textContent = 'You lose!';
         }
         this.endGameWrapper.appendChild(this.wonLoseText);
@@ -147,7 +125,7 @@ class Game {
         this.restartButton.textContent = 'Restart';
         this.endGameWrapper.appendChild(this.restartButton);
 
-        this.mainMenuButton.classList.add('main-menu-mutton');
+        this.mainMenuButton.classList.add('main-menu-button');
         this.mainMenuButton.textContent = 'Main Menu';
         this.endGameWrapper.appendChild(this.mainMenuButton);
 
@@ -157,6 +135,10 @@ class Game {
         });
 
         this.mainMenuButton.addEventListener('click', () => {
+            // not using location.reload as this is a SPA.
+            // SPAs usually don't reload the tab.
+            this.nut1Element.remove();
+            this.nut2Element.remove();
             this.endGameWrapper.style.display = 'none';
             this.firstScreen.style.display = 'block';
             this.secondScreen.style.display = 'none';

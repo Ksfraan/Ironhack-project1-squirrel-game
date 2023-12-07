@@ -17,6 +17,4 @@ window.addEventListener('load', () => {
         const gameClass = new Game();
         gameClass.startGame();
     });
-
-    // const restartButton = document.getElementById('restart-button');
 });

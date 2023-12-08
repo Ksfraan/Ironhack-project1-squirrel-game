@@ -10,7 +10,7 @@ HELP THE SQUIRREL is a game where the player tries to help the squirrel catch hi
 
 ## MVP:
 
--   It's a game that can be easily accessed, with a functional start button that will take you to the game screen, where everything happens, the player can capture the nuts by controlling the squirrel using the left and right arrow to control the squirrel. If he manages to capture the minimum number of good nuts, among the many bad nuts that fall, for the squirrel to spend the winter (20 good nuts), the player will win and receive congratulations on his victory, however, if he captures 3 bad nuts, the player will lose and will be warned that it was not the case this time. However, it won't be the last opportunity to help the squirrel, as any player can restart the game as many times as they want. The squirrel thanks you!
+-   It's a game that can be easily accessed, with a functional start button that will take you to the game screen, where everything happens, the player can capture the nuts by controlling the squirrel using the left and right arrow. If he manages to capture the minimum number of good nuts, among the many bad nuts that fall, for the squirrel to spend the winter (10 good nuts), the player will win and receive congratulations on his victory, however, if he captures 3 bad nuts, the player will lose and will be warned that it was not the case this time. Any way, it won't be the last opportunity to help the squirrel, as any player can restart the game as many times as they want. The squirrel thanks you!
 
 ## BACKLOG:
 

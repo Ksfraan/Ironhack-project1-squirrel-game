@@ -133,6 +133,7 @@ class Game {
         this.endGameWrapper.appendChild(this.mainMenuButton);
 
         this.restartButton.addEventListener('click', () => {
+            this.hasWon = false;
             this.endGameWrapper.style.display = 'none';
             this.beginGame();
         });

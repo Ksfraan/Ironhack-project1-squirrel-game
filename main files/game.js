@@ -45,7 +45,7 @@ class Game {
             return;
         }
 
-        if (this.lives > 0 && this.score >= 5) {
+        if (this.lives > 0 && this.score >= 10) {
             this.hasWon = true;
             this.endGame();
             return;

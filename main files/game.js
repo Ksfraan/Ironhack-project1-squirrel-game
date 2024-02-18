@@ -6,6 +6,7 @@ class Game {
         this.nut1Element = this.nut1.getNutElement();
         this.nut2Element = this.nut2.getNutElement();
         this.score = 0;
+        this.scoreObjective = 10;
         this.lives = 3;
         this.scoreElement = document.getElementById('score');
         this.livesElement = document.getElementById('lives');
@@ -34,9 +35,7 @@ class Game {
 
         setTimeout(() => {
             this.letsGoTitle.style.display = 'none';
-
             this.renderNuts();
-
             this.gameLoop();
         }, 2000);
     }
@@ -47,7 +46,7 @@ class Game {
             return;
         }
 
-        if (this.lives > 0 && this.score >= 10) {
+        if (this.lives > 0 && this.score >= this.scoreObjective) {
             this.hasWon = true;
             this.endGame();
             return;
@@ -102,7 +101,9 @@ class Game {
     }
 
     updateCounters() {
-        this.scoreElement.querySelector('span').textContent = this.score;
+        this.scoreElement.querySelector(
+            'span'
+        ).textContent = `${this.score}/${this.scoreObjective}`;
         this.livesElement.querySelector('span').textContent = this.lives;
     }
 

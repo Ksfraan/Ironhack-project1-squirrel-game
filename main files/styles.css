@@ -3,6 +3,8 @@ body {
     font-family: 'Gill Sans', sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
@@ -14,6 +16,7 @@ p {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: 2;
 }
 
 #first-screen img {
@@ -21,6 +24,8 @@ p {
 }
 
 #first-screen .first-screen-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,6 +33,7 @@ p {
 }
 
 #second-screen {
+    z-index: 1;
     display: none;
 }
 
@@ -106,10 +112,12 @@ p {
     position: absolute;
     z-index: -1;
     background-size: cover;
+    overflow: hidden;
 }
 
 #game-container {
     height: 100vh;
+    position: relative;
 }
 
 #player-container {
@@ -148,6 +156,7 @@ p {
     width: 100%;
     font-size: 2em;
     color: rgb(228, 203, 185);
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
 
 .falling-nut {
@@ -225,6 +234,7 @@ p {
     #second-screen {
         color: rgb(222, 120, 57);
         width: 100%;
+        display: none;
     }
 
     #lets-go {

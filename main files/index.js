@@ -1,7 +1,8 @@
 window.addEventListener('load', () => {
     const player = new Player(
         document.getElementById('player'),
-        document.getElementById('game-container')
+        document.getElementById('game-container'),
+        document.getElementById('playerImg')
     );
     const startButton = document.getElementById('start-button');
 

@@ -34,7 +34,9 @@ class Game {
 
         setTimeout(() => {
             this.letsGoTitle.style.display = 'none';
+
             this.renderNuts();
+
             this.gameLoop();
         }, 2000);
     }

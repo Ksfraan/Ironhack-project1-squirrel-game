@@ -1,15 +1,13 @@
 body {
-    align-items: center;
-    justify-content: center;
     margin: 0;
-    width: 100%;
     font-family: 'Gill Sans', sans-serif;
-    flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-h1 {
-    font-size: 3rem;
+p {
+    text-transform: uppercase;
+    padding: 0.3em;
 }
 
 #first-screen {
@@ -18,26 +16,19 @@ h1 {
     position: absolute;
 }
 
+#first-screen img {
+    object-fit: cover;
+}
+
 #first-screen .first-screen-wrapper {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-family: 'Gill Sans', sans-serif;
+    text-align: center;
 }
 
 #second-screen {
     display: none;
-}
-
-.buttonWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.buttonWrapper button {
-    width: 30%;
 }
 
 .running-squirrel-gif {
@@ -48,29 +39,17 @@ h1 {
 }
 
 .help-the-squirrel {
-    display: flex;
     text-align: center;
     text-transform: uppercase;
     text-shadow: white 2px 2px;
     color: rgb(222, 120, 57);
-    margin: 0;
-    padding: 2rem 5rem;
-    cursor: pointer;
-    animation: infinite;
-}
 
-.squirrel-gif {
-    height: 20em;
+    padding: 2rem 5rem;
 }
 
 .introduction-history {
-    color: rgb(0, 0, 0);
     text-transform: uppercase;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
     text-align: center;
-    margin: 0;
     width: 50%;
     background-color: #ada62099;
     padding: 2rem;
@@ -79,16 +58,12 @@ h1 {
 }
 
 #start-button {
-    display: flex;
-    font-family: 'Gill Sans', sans-serif;
     font-size: 1.5rem;
-    justify-content: center;
-    align-items: center;
     text-transform: uppercase;
     font-family: 'Gill Sans', sans-serif;
     background-color: #fff2004a;
-    width: 30rem;
-    height: 7rem;
+    width: 10rem;
+    height: 5rem;
     border-radius: 15px;
     border-color: #fff2004a;
 }
@@ -100,6 +75,7 @@ h1 {
 #second-screen {
     color: rgb(222, 120, 57);
     width: 100%;
+    object-fit: contain;
 }
 
 #lets-go {
@@ -110,19 +86,18 @@ h1 {
     margin-bottom: 0;
     margin-left: 5em;
     position: absolute;
-    font-size: 5em;
+    font-size: 2em;
 }
 
 .second-screen-background {
-    width: 100%;
+    width: auto;
     height: 100%;
     position: absolute;
     z-index: -1;
+    background-size: cover;
 }
 
 #game-container {
-    position: relative;
-    width: 100%;
     height: 100vh;
 }
 
@@ -134,50 +109,38 @@ h1 {
 }
 
 #player img {
-    width: 100%;
     height: 100%;
 }
 
 #player {
-    width: 10em;
-    height: 12em;
+    height: 9em;
     position: absolute;
-    left: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
 }
 
 .player-collision {
     position: absolute;
     bottom: 0;
-    width: 90%;
+    width: 80%;
     height: 80%;
 }
 
 .container-counters {
     text-transform: uppercase;
-    font-size: 4em;
     display: flex;
-    align-items: center;
-    text-align: center;
     justify-content: space-around;
-    margin: 0;
-    padding: 2rem;
-    border-radius: 15px;
     line-height: 1.7em;
     top: 0;
     position: absolute;
     width: 100%;
-    text-shadow: rgb(158, 72, 19) 2px 2px;
-    font-size: 3em;
+    font-size: 2em;
     color: rgb(228, 203, 185);
 }
 
 .falling-nut {
     position: absolute;
-    width: 5em;
-    height: 6em;
+    width: 4em;
+    height: 5em;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -195,19 +158,13 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     justify-content: center;
 }
 
 #restart-button {
-    display: flex;
-    font-family: 'Gill Sans', sans-serif;
     font-size: 1.5rem;
-    justify-content: center;
-    align-items: center;
     text-transform: uppercase;
     font-family: 'Gill Sans', sans-serif;
     background-color: #fff2004a;
@@ -219,8 +176,6 @@ h1 {
 }
 
 .main-menu-button {
-    display: flex;
-    font-family: 'Gill Sans', sans-serif;
     font-size: 1.5rem;
     justify-content: center;
     align-items: center;
@@ -234,10 +189,254 @@ h1 {
 }
 
 .won-lose-text {
-    display: flex;
     text-transform: uppercase;
     text-shadow: white 2px 2px;
-    font-size: 3em;
-    color: rgb(123, 51, 7);
-    margin: 0;
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+
+@media screen and (min-width: 724px) {
+    body {
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        font-family: 'Gill Sans', sans-serif;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    #first-screen {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    #first-screen .first-screen-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Gill Sans', sans-serif;
+    }
+
+    #second-screen {
+        display: none;
+    }
+
+    .buttonWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttonWrapper button {
+        width: 30%;
+    }
+
+    .running-squirrel-gif {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .help-the-squirrel {
+        display: flex;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: white 2px 2px;
+        color: rgb(222, 120, 57);
+        margin: 0;
+        padding: 2rem 5rem;
+        cursor: pointer;
+        animation: infinite;
+    }
+
+    .squirrel-gif {
+        height: 20em;
+    }
+
+    .introduction-history {
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        width: 50%;
+        background-color: #ada62099;
+        padding: 2rem;
+        border-radius: 15px;
+        line-height: 1.7em;
+    }
+
+    #start-button {
+        display: flex;
+        font-family: 'Gill Sans', sans-serif;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', sans-serif;
+        background-color: #fff2004a;
+        width: 30rem;
+        height: 7rem;
+        border-radius: 15px;
+        border-color: #fff2004a;
+    }
+
+    #start-button:hover {
+        background-color: #c4be504a;
+    }
+
+    #second-screen {
+        color: rgb(222, 120, 57);
+        width: 100%;
+    }
+
+    #lets-go {
+        text-transform: uppercase;
+        text-shadow: white 2px 2px;
+        color: rgb(222, 120, 57);
+        margin-top: 3em;
+        margin-bottom: 0;
+        margin-left: 5em;
+        position: absolute;
+        font-size: 5em;
+    }
+
+    .second-screen-background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #game-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    #player-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #player img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #player {
+        width: 13em;
+        height: 12em;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .player-collision {
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+        height: 80%;
+    }
+
+    .container-counters {
+        text-transform: uppercase;
+        font-size: 4em;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-around;
+        margin: 0;
+        padding: 2rem;
+        border-radius: 15px;
+        line-height: 1.7em;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        text-shadow: rgb(158, 72, 19) 2px 2px;
+        font-size: 3em;
+        color: rgb(228, 203, 185);
+    }
+
+    .falling-nut {
+        position: absolute;
+        width: 5em;
+        height: 6em;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .bad-nut {
+        background-image: url('images/rotten\ nut.png');
+    }
+
+    .good-nut {
+        background-image: url('images/good\ nut.png');
+    }
+
+    .end-game-wrapper {
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #restart-button {
+        display: flex;
+        font-family: 'Gill Sans', sans-serif;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', sans-serif;
+        background-color: #fff2004a;
+        width: 20rem;
+        height: 5rem;
+        border-radius: 15px;
+        border-color: #fff2004a;
+        margin-bottom: 1em;
+    }
+
+    .main-menu-button {
+        display: flex;
+        font-family: 'Gill Sans', sans-serif;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', sans-serif;
+        background-color: #fff2004a;
+        width: 10rem;
+        height: 5rem;
+        border-radius: 15px;
+        border-color: #fff2004a;
+    }
+
+    .won-lose-text {
+        display: flex;
+        text-transform: uppercase;
+        text-shadow: white 2px 2px;
+        font-size: 3em;
+        color: rgb(123, 51, 7);
+        margin: 0;
+    }
 }
